@@ -15,9 +15,19 @@ export const cryptoCoinsApi = createApi({
         getCryptoCoins: builder.query({
             query: (count) => createRequest(`/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${count}&page=1&sparkline=false`),
         }),
+
+        getCoinsDetail: builder.query({
+            query: (coinId) => createRequest(`/coins/${coinId}`),
+        }),
+
+        getCryptoHistory: builder.query({
+            query: ({ coinId, timePeriod }) => createRequest(`/coins/${coinId}/market_chart?vs_currency=usd&days=${timePeriod}`),
+        }),
     })
 })
 
 export const {
     useGetCryptoCoinsQuery,
+    useGetCoinsDetailQuery,
+    useGetCryptoHistoryQuery,
 } = cryptoCoinsApi;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
-import { Navbar, Sidebar, Cryptocurrencies, Exchanges, Mining, News } from './components';
+import { Navbar, Sidebar, Cryptocurrencies, Exchanges, Mining, News, CoinDetails } from './components';
 
 const App = () => {
   return (
@@ -18,6 +18,7 @@ const App = () => {
         <Route path="/exchanges" element={<Exchanges />} />
         <Route path="/miningcrypto" element={<Mining />} />
         <Route path="/news" element={<News />} />
+        <Route path="/coins/:coinId" element={<CoinDetails />} />
       </Routes>
     </>
   );
