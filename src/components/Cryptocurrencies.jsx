@@ -19,7 +19,7 @@ const Cryptocurrencies = ({ shortened }) => {
     )}
       <div className='w-full flex justify-center pb-8'>
         <div className='flex justify-center text-black pl-60 pr-10 pt-10 w-100'>
-          <div className=' grid lg:grid-cols-5 pl-10 gap-5 md:grid-cols-3'>
+          <div className='grid lg:grid-cols-5 pl-10 gap-5 md:grid-cols-3'>
             {cryptoCoins?.map((coinsList) => (
               <div key={coinsList.id} className='border-4 border-black flex flex-col items-center bg-purple-400'>
                 <h2 className='text-4xl pt-3 pb-3'>{coinsList.name} ({coinsList.symbol})</h2>

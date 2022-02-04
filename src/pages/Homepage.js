@@ -2,14 +2,11 @@ import React from 'react';
 import { useGetGlobalCryptoStatsQuery } from '../services/cryptoApi';
 import { Link } from 'react-router-dom';
 import millify from 'millify';
-import Rings from '../components/Rings';
-import Cryptocurrencies from '../components/Cryptocurrencies';
+import { Cryptocurrencies, Exchanges, Rings } from '../components';
 
 const Homepage = () => {
     const { data: globalCoinStats, isFetching } = useGetGlobalCryptoStatsQuery();
-
     if (isFetching) return <Rings />;
-
     const globalStats = globalCoinStats?.data.stats;
 
     return (
@@ -39,6 +36,8 @@ const Homepage = () => {
                 <p className='pl-72'>Top 10 Exchanges</p>
                 <Link to="/exchanges" className='pr-8 text-2xl text-green-700'>Show More</Link>
             </div>
+
+            <Exchanges shortened />
 
             <div className='flex justify-between pt-10 text-black text-4xl font-bold'>
                 <p className='pl-72'>Top Mineable Coins</p>
