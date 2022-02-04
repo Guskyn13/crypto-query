@@ -19,7 +19,6 @@ const Exchanges = ({ shortened }) => {
                 <div className='flex justify-center text-black pl-64 pt-10 text-5xl w-100'>
                     <div className='grid lg:grid-cols-5 pl-10 gap-5 sm:grid-cols-3 md:grid-cols-3'>
                         {coinExchanges?.map((exchange) => (
-                            // console.log(exchange)
                             <div key={exchange.id} className='border-4 border-black flex flex-col items-center bg-purple-400'>
                                 <h2 className='text-4xl pt-3 pb-3'>{exchange.name}</h2>
                                 <a href={exchange.url}><img className="h-20" key={exchange.name} alt="exchange icon" src={exchange.image} /></a>
