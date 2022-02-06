@@ -2,7 +2,7 @@ import React from 'react';
 import { useGetGlobalCryptoStatsQuery } from '../services/cryptoApi';
 import { Link } from 'react-router-dom';
 import millify from 'millify';
-import { Cryptocurrencies, Exchanges, Rings, News } from '../components';
+import { Cryptocurrencies, Exchanges, Rings, News, Mining } from '../components';
 
 const Homepage = () => {
     const { data: globalCoinStats, isFetching } = useGetGlobalCryptoStatsQuery();
@@ -43,6 +43,8 @@ const Homepage = () => {
                 <p className='pl-72'>Top Mineable Coins</p>
                 <Link to="/miningcrypto" className='pr-8 text-2xl text-green-700'>Show More</Link>
             </div>
+
+            <Mining />
 
             <div className='flex justify-between pt-10 text-black text-4xl font-bold'>
                 <p className='pl-72'>Top Crypto News</p>
