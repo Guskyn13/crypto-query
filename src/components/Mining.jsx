@@ -17,14 +17,14 @@ const Mining = () => {
                     {mineableCoins?.map((mineableCoin) => (
                         <div key={mineableCoin.id} className='border-4 border-black flex flex-col items-center bg-purple-400 pb-4' >
                             <p className='text-4xl font-bold pt-3 pb-3'>{mineableCoin.coin}</p>
-                            <p className='text-2xl'><strong>Name:</strong> {mineableCoin.name}</p>
-                            <p className='text-2xl'><strong>Algorithm:</strong> {mineableCoin?.algorithm}</p>
-                            <p className='text-2xl'><strong>Difficulty:</strong> {mineableCoin?.difficulty}</p>
-                            <p className='text-2xl'><strong></strong>Current Price: ${millify(mineableCoin.price)}</p>
-                            <p className='text-2xl'><strong></strong>Reward: {mineableCoin.reward}</p>
-                            <p className='text-2xl'><strong></strong>Type: {mineableCoin.type}</p>
-                            <p className='text-2xl'><strong></strong>Volume: ${millify(mineableCoin.volume)}</p>
-                            <p className='text-2xl'><strong></strong>Reward Unit: {mineableCoin.reward_unit}</p>
+                            <p className='text-2xl'><strong>Name</strong>: {mineableCoin.name}</p>
+                            <p className='text-2xl'><strong>Algorithm</strong>: {mineableCoin?.algorithm}</p>
+                            <p className='text-2xl'><strong>Difficulty</strong>: {mineableCoin?.difficulty}</p>
+                            <p className='text-2xl'><strong>Current Price</strong>: ${millify(mineableCoin.price)}</p>
+                            <p className='text-2xl'><strong>Reward</strong>: {mineableCoin.reward}</p>
+                            <p className='text-2xl'><strong>Type</strong>: {mineableCoin.type}</p>
+                            <p className='text-2xl'><strong>Volume</strong>: ${millify(mineableCoin.volume)}</p>
+                            <p className='text-2xl'><strong>Reward Unit</strong>: {mineableCoin.reward_unit}</p>
                         </div>
                     ))}
                 </div>

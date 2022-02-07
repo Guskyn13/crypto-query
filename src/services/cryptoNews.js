@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const cryptoNewsHeaders = {
         'x-bingapis-sdk': 'true',
         'x-rapidapi-host': 'bing-news-search1.p.rapidapi.com',
-        'x-rapidapi-key': 'a1be111791msh344c231318206d9p1def6fjsn8b6247b18dd4'
+        'x-rapidapi-key': 'd0084ba4f7msh82de2a2689b73bap164da5jsn3a7a9ca08ec3'
 }
 
 const baseUrl = 'https://bing-news-search1.p.rapidapi.com'
