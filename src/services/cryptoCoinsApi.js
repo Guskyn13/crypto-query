@@ -9,7 +9,7 @@ const createRequest = (url) => ({ url, headers: coinGeckoHeaders })
 
 export const cryptoCoinsApi = createApi({
     reducerPath: 'cryptoCoinsApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://api.coingecko.com/api/v3' }),
+    baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_COINGECKO_BASEURL }),
     endpoints: (builder) => ({
 
         getCryptoCoins: builder.query({
