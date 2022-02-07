@@ -4,6 +4,7 @@ import { useGetCryptoNewsQuery } from '../services/cryptoNews';
 import { useGetCryptoCoinsQuery } from '../services/cryptoCoinsApi';
 import { Rings } from '../components';
 import demoImage from '../images/newsIcon.jpg';
+import demoImage2 from '../images/newsCompanyIcon.jpg';
 
 const News = ({ shortened }) => {
     const [newsCategory, setNewsCategory] = useState('Crypto');
@@ -38,12 +39,12 @@ const News = ({ shortened }) => {
                             <div className='border-4 border-black flex flex-col items-center bg-gray-500'>
                                 <a href={cryptoArticle.url}>
                                     <div className='flex items-center pl-4 pr-4 pt-4 pb-4 border-b-2 border-black'>
-                                        <p className='text-2xl pt-3 font-bold'>{cryptoArticle.name}</p>
+                                        <p className='text-2xl pt-3 font-bold pr-4'>{cryptoArticle.name}</p>
                                         <img className='h-20' src={cryptoArticle?.image?.thumbnail?.contentUrl || demoImage} alt="" />
                                     </div>
                                     <p className='text-xl pt-6 pl-4 pr-4'>{cryptoArticle.description > 100 ? `${cryptoArticle?.description.substring(0, 100)}...` : cryptoArticle.description}</p>
-                                    <div className='grid grid-cols-2 items-center text-lg pt-8 pb-4 pl-20'>
-                                        {/* <img className='' src={cryptoArticle?.provider[0]?.image?.thumbnail?.contentUrl} alt="" /> */}
+                                    <div className='grid grid-cols-3 items-center text-lg pt-8 pb-4 pl-8'>
+                                        <img className='h-12' src={cryptoArticle?.provider[0]?.image?.thumbnail?.contentUrl || demoImage2} alt="" />
                                         <p>{cryptoArticle.provider[0]?.name}</p>
                                         <p>{moment(cryptoArticle.datePublished).startOf('ss').fromNow()}</p>
                                     </div>

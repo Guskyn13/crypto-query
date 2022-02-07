@@ -9,8 +9,6 @@ const Exchanges = ({ shortened }) => {
     const [filteredExchange, setFilteredExchange] = useState(coinExchanges);
     const [searchExchange, setSearchExchange] = useState('');
 
-    console.log(coinExchanges);
-
     useEffect(() => {
         setFilteredExchange(coinExchanges)
         const filterExchange = coinExchanges?.filter((exchange) => exchange.name.toLowerCase().includes(searchExchange.toLowerCase()))
@@ -35,9 +33,9 @@ const Exchanges = ({ shortened }) => {
                                 <a href={exchange.url}><img className="h-20" key={exchange.name} alt="exchange icon" src={exchange.image} /></a>
                                 <p className='text-2xl pt-2 text-white'>{exchange.trust_score_rank}</p>
                                 <p className='text-2xl text-white'>{exchange.country}</p>
-                                <p className='flex text-2xl space-x-2'>
+                                <p className='flex text-2xl space-x-2 pl-2 pr-2'>
                                     <strong>24H Trade Volume</strong>:
-                                    <p className='text-white pb-4'>{millify(exchange.trade_volume_24h_btc)}
+                                    <p className='text-white pb-4'>${millify(exchange.trade_volume_24h_btc)}
                                     </p>
                                 </p>
                             </div>
