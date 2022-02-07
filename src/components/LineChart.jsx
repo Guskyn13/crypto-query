@@ -38,8 +38,6 @@ const LineChart = ({ currentPrice, coinName, coinHistory }) => {
     }
     )
 
-    console.log("x Axis", coinTimestamp);
-
     const data = {
         labels: coinTimestamp,
         datasets: [
@@ -48,7 +46,7 @@ const LineChart = ({ currentPrice, coinName, coinHistory }) => {
                 data: coinPrice,
                 fill: false,
                 backgroundColor: '#000',
-                borderColor: '#000',
+                borderColor: '#fff',
             },
         ],
     };
@@ -66,7 +64,8 @@ const LineChart = ({ currentPrice, coinName, coinHistory }) => {
 
     return (
         <>
-            <div className='w-11/12 pl-60 pt-20 pb-20'>
+            <div className='w-11/12 pl-60 pb-20'>
+                <p className='text-white text-4xl'>Current {coinName} Price: ${currentPrice}</p>
                 <Line data={data} options={options} />
             </div>
         </>

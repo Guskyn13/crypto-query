@@ -11,8 +11,6 @@ const News = ({ shortened }) => {
     const { data: cryptoNews, isFetching } = useGetCryptoNewsQuery({ newsCategory, count: shortened ? 5 : 20 });
     const { data: cryptoCoins } = useGetCryptoCoinsQuery(250);
 
-    console.log(cryptoNews);
-
     if (isFetching) return <Rings />;
 
     return (
