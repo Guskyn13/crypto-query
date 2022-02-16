@@ -26,13 +26,13 @@ const LineChart = ({ currentPrice, coinName, coinHistory }) => {
     const coinTimestamp = [];
     const coinPrice = [];
 
-    coinHistoryDates.map((date) => {
+    coinHistoryDates?.map((date) => {
         coinTimestamp.push(date[0])
         return coinTimestamp;
     }
     )
 
-    coinHistoryDates.map((date) => {
+    coinHistoryDates?.map((date) => {
         coinPrice.push(date[1])
         return coinPrice;
     }

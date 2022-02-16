@@ -6,7 +6,9 @@ import { Cryptocurrencies, Exchanges, Rings, News } from '../components';
 
 const Homepage = () => {
     const { data: globalCoinStats, isFetching } = useGetGlobalCryptoStatsQuery();
+
     if (isFetching) return <Rings />;
+
     const globalStats = globalCoinStats?.data.stats;
 
     return (

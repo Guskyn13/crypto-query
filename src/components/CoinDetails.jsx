@@ -61,8 +61,8 @@ const CoinDetails = () => {
                     <div className='text-2xl space-y-6 pt-2'>
                         <p>{coinDetails?.market_cap_rank}</p>
                         <p>${millify(marketData?.current_price?.usd)}</p>
-                        <p>${millify(coinDetails?.market_data?.high_24h.usd)}</p>
-                        <p>${millify(coinDetails?.market_data?.low_24h.usd)}</p>
+                        <p>${millify(coinDetails?.market_data?.high_24h?.usd)}</p>
+                        <p>${millify(coinDetails?.market_data?.low_24h?.usd)}</p>
                         <p>${millify(marketData?.price_change_24h)}</p>
                         <p className='pt-12'>${millify(marketData?.circulating_supply)}</p>
                         <p>${millify(marketData?.total_supply)}</p>

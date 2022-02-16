@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import millify from 'millify';
 import { useGetCryptoCoinsQuery } from '../services/cryptoCoinsApi';
-import Rings from '../components/Rings';
+import { Rings } from '../components';
 
 const Cryptocurrencies = ({ shortened }) => {
   const count = shortened ? 12 : 250;
@@ -33,24 +33,29 @@ const Cryptocurrencies = ({ shortened }) => {
                 <p className='text-3xl pt-3 pb-3 font-bold'>{coinsList.name} ({coinsList.symbol})</p>
                 <Link to={`/coins/${coinsList.id}`}><img src={coinsList.image} alt="crypto-symbol" className="h-20" /></Link>
                 <p className='text-2xl pt-2 font-bold'>{millify(coinsList.market_cap_rank)}</p>
-                <p
-                  className=' flex space-x-2 text-xl pt-1'>
-                  <strong>Current Price</strong>:
-                  <p className='text-white'>${millify(coinsList.current_price)}
+
+                <div>
+                  <p className=' flex space-x-2 text-xl pt-1'>
+                    <strong>Current Price</strong>:
+                    <h4 className='text-white'>${millify(coinsList.current_price)}
+                    </h4>
                   </p>
-                </p>
-                <p
-                  className='flex space-x-2 text-xl pt-1 pb-4'>
-                  <strong>24h % change</strong>:
-                  <p className='text-white'>${millify(coinsList.market_cap_change_percentage_24h)}%
+                </div>
+
+                <div>
+                  <p
+                    className='flex space-x-2 text-xl pt-1 pb-4'>
+                    <strong>24h % change</strong>:
+                    <h4 className='text-white'>${millify(coinsList.market_cap_change_percentage_24h)}%
+                    </h4>
                   </p>
-                </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
