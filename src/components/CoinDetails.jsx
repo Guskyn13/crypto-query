@@ -17,35 +17,44 @@ const CoinDetails = () => {
 
     const marketData = coinDetails?.market_data;
 
+    const coinHomepage = coinDetails?.links?.homepage;
+    const coinBlockchain = coinDetails?.links?.blockchain_site;
+    const coinForum = coinDetails?.links?.official_forum_url;
+    // const links = coinDetails?.links;
+
+
     return (
         <div>
-            <div className='w-full flex flex-col justify-center items-center pb-8'>
-                <div className='flex flex-col  items-center pt-10'>
-                    <h1 className='text-6xl font-bold pb-8'>{coinDetails?.name} ({coinDetails?.symbol})</h1>
-                    <img src={coinDetails?.image?.thumb} className='h-20 mb-20' alt="coin thumbnail" />
+            <div className='w-full flex flex-col justify-center items-center pb-8 xl:pl-56'>
+                <div className='flex flex-col  items-center pt-6 mb-20'>
+                    <h1 className='font-bold pb-6 
+                        text-4xl
+                        xl:text-5xl
+                        '>{coinDetails?.name} ({coinDetails?.symbol})</h1>
+                    <img src={coinDetails?.image?.thumb} className='h-24' alt="coin thumbnail" />
                 </div>
 
-                <div className='flex space-x-2'>
-                    <select defaultValue="7" placeholder='Select a Timeperiod' onChange={(e) => setTimePeriod(e.target.value)} className='w-20'>
+                <div className='flex space-x-2 justify-center items-center'>
+                    <select defaultValue="7" onChange={(e) => setTimePeriod(e.target.value)} className='w-16 h-6'>
                         {time?.map((date) => <option key={date}>{date}</option>)}
                     </select>
-                    <p className='text-white text-2xl'>Days Ago</p>
+                    <p className='text-white text-xl'>Days Ago</p>
                 </div>
 
                 <LineChart coinHistory={coinHistory} currentPrice={millify(marketData?.current_price?.usd)} coinName={coinDetails?.name} />
 
-                <div className='w-4/5 pl-32 text-2xl text-white'>
+                <div className='w-4/5 text-base text-white lg:text-xl'>
                     <p>{HTMLReactParser(coinDetails?.description?.en)}</p>
                 </div>
 
-                <div className='grid grid-cols-3 pt-28 font-bold pl-32'>
+                <div className='grid grid-cols-3 pt-16 pl-2'>
 
-                    <div className='pr-20 text-4xl text-white space-y-72'>
-                        <p>{coinDetails?.name} Price Statistics</p>
-                        <p>{coinDetails?.name} Market Statistics</p>
+                    <div className='text-base text-white space-y-48 font-bold lg:text-xl'>
+                        <p>{coinDetails?.name} <br /> Price Statistics</p>
+                        <p>{coinDetails?.name} <br /> Market Statistics</p>
                     </div>
 
-                    <div className='text-2xl space-y-6 pt-2 text-gray-500'>
+                    <div className='text-base space-y-4 text-gray-500 pl-4 lg:text-xl lg:font-bold'>
                         <p>Coin Rank:</p>
                         <p>Current Price:</p>
                         <p>Highest in past 24h:</p>
@@ -54,11 +63,11 @@ const CoinDetails = () => {
                         <p className='pt-12'>Circulating Supply:</p>
                         <p>Total Supply:</p>
                         <p>Market Cap:</p>
-                        <p>24h Market cap change:</p>
+                        <p>24h Mkt cap chg:</p>
                         <p>Total volume:</p>
                     </div>
 
-                    <div className='text-2xl space-y-6 pt-2'>
+                    <div className='text-base space-y-4 pl-8 lg:text-xl lg:font-bold'>
                         <p>{coinDetails?.market_cap_rank}</p>
                         <p>${millify(marketData?.current_price?.usd)}</p>
                         <p>${millify(coinDetails?.market_data?.high_24h?.usd)}</p>
@@ -70,6 +79,27 @@ const CoinDetails = () => {
                         <p>${millify(marketData?.market_cap_change_24h)}</p>
                         <p>${millify(marketData?.total_volume?.usd)}</p>
                     </div>
+                </div>
+
+                <p className='text-xl lg:text-3xl font-bold pb-4 mt-16 text-blue-600'>Links</p>
+
+                <div className='flex justify-evenly items-center w-full pb-4'>
+
+                    <a href={(coinHomepage[0]) ? (coinHomepage[0]) : ""}>
+                        <button className='p-4 bg-black text-white rounded-2xl'>
+                            {coinDetails?.name}<br /> Homepage
+                        </button>
+                    </a>
+                    <a href={(coinBlockchain[0]) ? (coinBlockchain[0]) : ""}>
+                        <button className='p-4 bg-black text-white rounded-2xl'>
+                            {coinDetails?.name} <br /> Blockchain
+                        </button>
+                    </a>
+                    <a href={(coinForum[0]) ? (coinForum[0]) : ""}>
+                        <button className='p-4 bg-black text-white rounded-2xl'>
+                            {coinDetails?.name}<br/> Forum
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

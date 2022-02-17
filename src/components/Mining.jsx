@@ -18,23 +18,28 @@ const Mining = () => {
 
     return (
         <div>
-            <div className='flex justify-center pl-64 pt-10 text-2xl'>
-                <input type="text" placeholder='Search Mineable Cryptocurrency' className='h-12 pl-4 bg-gray-500 w-3/5' onChange={(e) => setSearchCrypto(e.target.value)}></input>
+            <div className='flex items-center justify-center lg:text-2xl text-md pt-10 sm:text-lg xl:pl-56'>
+                <input type="text" placeholder='Search Mineable Cryptocurrency' className='h-8 pl-4 bg-gray-500 w-4/5 sm:h-10 xl:w-2/3' onChange={(e) => setSearchCrypto(e.target.value)}></input>
             </div>
-            <div className='w-full flex justify-center'>
-                <div className='flex justify-center text-black pl-64 pt-10 text-5xl w-100'>
-                    <div className='grid lg:grid-cols-5 pl-10 gap-5 md:grid-cols-3'>
+
+            <div className='w-full flex justify-center pb-8 h-full'>
+                <div className='flex justify-center text-black xl:pl-60 pr-10 pt-10 w-100'>
+                    <div className='grid pl-10 gap-8 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2'>
                         {filteredCryptos?.map((mineableCoin) => (
-                            <div key={mineableCoin?.id} className='border-4 border-black flex flex-col items-center bg-gray-500 pb-4 pl-4 pr-4 space-y-1' >
-                                <p className='text-4xl font-bold pt-4 pb-4'>{mineableCoin?.coin}</p>
-                                <p className='text-2xl'><strong>Name</strong>: {mineableCoin?.name}</p>
-                                <p className='text-2xl'><strong>Algorithm</strong>: {mineableCoin?.algorithm}</p>
-                                <p className='text-2xl'><strong>Difficulty</strong>: {mineableCoin?.difficulty}</p>
-                                <p className='text-2xl'><strong>Current Price</strong>: ${millify(mineableCoin?.price)}</p>
-                                <p className='text-2xl'><strong>Reward</strong>: {mineableCoin?.reward}</p>
-                                <p className='text-2xl'><strong>Type</strong>: {mineableCoin?.type}</p>
-                                <p className='text-2xl'><strong>Volume</strong>: ${millify(mineableCoin?.volume)}</p>
-                                <p className='text-2xl'><strong>Reward Unit</strong>: {mineableCoin?.reward_unit}</p>
+                            <div key={mineableCoin?.id} className='border-2 border-black flex flex-col items-center bg-gray-500'>
+                                <span className='pt-3 pb-3 font-bold xl:text-2xl text-2xl'>{mineableCoin?.coin}</span>
+                                <div className='flex flex-col items-center text-xl pb-4'>
+
+                                    <span><span className='font-bold'>Name</span>: {mineableCoin?.name}</span>
+                                    <span><span className='font-bold'>Algorithm</span>: {mineableCoin?.algorithm}</span>
+                                    <span><span className='font-bold'>Difficulty</span>: {mineableCoin?.difficulty}</span>
+                                    <span><span className='font-bold'>Current Price</span>: ${millify(mineableCoin?.price)}</span>
+                                    <span><span className='font-bold'>Reward</span>: {mineableCoin?.reward}</span>
+                                    <span><span className='font-bold'>Type</span>: {mineableCoin?.type}</span>
+                                    <span><span className='font-bold'>Volume</span>: ${millify(mineableCoin?.volume)}</span>
+                                    <span><span className='font-bold'>Reward Unit</span>: {mineableCoin?.reward_unit}</span>
+
+                                </div>
                             </div>
                         ))}
                     </div>

@@ -40,32 +40,45 @@ const LineChart = ({ currentPrice, coinName, coinHistory }) => {
 
     const data = {
         labels: coinTimestamp,
-        datasets: [
-            {
-                label: `${coinName} price in USD`,
-                data: coinPrice,
-                fill: false,
-                backgroundColor: '#000',
-                borderColor: '#fff',
-            },
-        ],
+        datasets: [{
+            label: `${coinName} price in USD`,
+            data: coinPrice,
+            fill: false,
+            backgroundColor: '#000',
+            borderColor: '#fff',
+            lineTension: 0.1
+        }],
     };
 
     const options = {
         responsive: true,
+        plugins: {
+            tooltip: {
+                mode: 'index',
+                intersect: false,
+            }
+        },
         scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
+            y: {
+                title: {
+                    display: true,
+                    text: 'Price'
+                },
+                max: coinPrice.max
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: "Date",
                 }
-            }]
+            }
         }
     };
 
     return (
         <>
-            <div className='w-11/12 pl-60 pb-20'>
-                <p className='text-white text-4xl'>Current {coinName} Price: ${currentPrice}</p>
+            <div className='flex flex-col items-center justify-center w-screen pl-4 pr-4 pt-8 pb-20 xl:w-5/6'>
+                <p className='text-white text-lg'>Current {coinName} Price: ${currentPrice}</p>
                 <Line data={data} options={options} />
             </div>
         </>

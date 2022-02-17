@@ -5,7 +5,7 @@ import { useGetCryptoCoinsQuery } from '../services/cryptoCoinsApi';
 import { Rings } from '../components';
 
 const Cryptocurrencies = ({ shortened }) => {
-  const count = shortened ? 12 : 250;
+  const count = shortened ? 10 : 250;
   const { data: cryptoCoins, isFetching } = useGetCryptoCoinsQuery(count);
   const [filteredCryptos, setFilteredCryptos] = useState(cryptoCoins);
   const [searchCrypto, setSearchCrypto] = useState('');
@@ -21,34 +21,52 @@ const Cryptocurrencies = ({ shortened }) => {
   return (
     <div className='bg-gray-700 h-full'>
       {!shortened && (
-        <div className='flex items-center justify-center text-2xl pt-10'>
-          <input type="text" placeholder='Search Cryptocurrency' className='h-12 pl-4 bg-gray-500 w-3/5' onChange={(e) => setSearchCrypto(e.target.value)} />
+        <div className='flex items-center justify-center lg:text-2xl text-md pt-10 sm:text-lg xl:pl-56'>
+          <input type="text" placeholder='Search Cryptocurrency' className='h-8 pl-4 bg-gray-500 w-4/5 sm:h-10 xl:w-2/3' onChange={(e) => setSearchCrypto(e.target.value)} />
         </div>
       )}
       <div className='w-full flex justify-center pb-8 h-full'>
-        <div className='flex justify-center text-black pl-60 pr-10 pt-10 w-100'>
-          <div className='grid lg:grid-cols-6 pl-10 gap-8 md:grid-cols-3'>
+        <div className='flex justify-center text-black xl:pl-60 pr-10 pt-10 w-100'>
+          <div className='grid pl-10 gap-8 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'>
             {filteredCryptos?.map((coinsList) => (
-              <div key={coinsList.id} className='border-4 border-black flex flex-col items-center bg-gray-500'>
-                <p className='text-3xl pt-3 pb-3 font-bold'>{coinsList.name} ({coinsList.symbol})</p>
-                <Link to={`/coins/${coinsList.id}`}><img src={coinsList.image} alt="crypto-symbol" className="h-20" /></Link>
-                <p className='text-2xl pt-2 font-bold'>{millify(coinsList.market_cap_rank)}</p>
+              <div key={coinsList.id} className='2xl:border-4 border-2 border-black flex flex-col items-center bg-gray-500'>
 
-                <div>
-                  <p className=' flex space-x-2 text-xl pt-1'>
-                    <strong>Current Price</strong>:
-                    <h4 className='text-white'>${millify(coinsList.current_price)}
-                    </h4>
-                  </p>
+                <p className='pt-3 pb-3 font-bold xl:text-2xl text-xl'>
+                  {coinsList.name} ({coinsList.symbol})
+                </p>
+
+                <Link to={`/coins/${coinsList.id}`}><img src={coinsList.image} alt="crypto-symbol" className="h-20" /></Link>
+
+                <p className='pt-2 font-bold xl:text-2xl text-xl'>
+                  {millify(coinsList.market_cap_rank)}
+                </p>
+
+                <div className='flex items-center pt-2 space-x-2 pr-4 pl-4'>
+                  <span className='font-bold
+                 '
+                  >
+                    Current Price:
+                  </span >
+                  <span className='text-white
+                  2xl:text-lg
+                  '
+                  >
+                    ${millify(coinsList.current_price)}
+                  </span>
                 </div>
 
-                <div>
-                  <p
-                    className='flex space-x-2 text-xl pt-1 pb-4'>
-                    <strong>24h % change</strong>:
-                    <h4 className='text-white'>${millify(coinsList.market_cap_change_percentage_24h)}%
-                    </h4>
-                  </p>
+                <div className='flex items-center pt-2 space-x-2 pb-2 pr-4 pl-4'>
+                  <span className='font-bold
+                  '
+                  >
+                    24h % change:
+                  </span>
+                  <span className='text-white
+                  2xl:text-lg
+                  '
+                  >
+                    ${millify(coinsList.market_cap_change_percentage_24h)}%
+                  </span>
                 </div>
               </div>
             ))}
