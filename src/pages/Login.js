@@ -7,8 +7,8 @@ import { client } from '../client';
 const Login = () => {
   const navigate = useNavigate();
 
-  const responseGoogle = (response) => {
-    localStorage.setItem('user', JSON.stringify(response.profileObj))
+  const googleResponse = (response) => {
+    localStorage.setItem('user', JSON.stringify(response?.profileObj));
 
     const { name, googleId, imageUrl } = response.profileObj;
     const doc = {
@@ -36,8 +36,8 @@ const Login = () => {
             Sign into Google
           </button>
         )}
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
+        onSuccess={googleResponse}
+        onFailure={googleResponse}
         cookiePolicy='single_host_origin'
       />
     </div>

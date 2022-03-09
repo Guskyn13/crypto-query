@@ -80,14 +80,14 @@ const Homepage = () => {
                 </div>
 
                 <div className='flex justify-between pt-10 text-black font-bold text-lg md:text-xl lg:text-2xl 2xl:text-3xl'>
-                    <p className='xl:pl-72 md:pl-8 pl-4'>Top 12 Cryptocurrencies</p>
+                    <p className='xl:pl-72 md:pl-8 pl-4'>Top 10 Cryptocurrencies</p>
                     <Link to="/cryptocurrencies" className='pr-4 text-white lg:pr-12'>Show More</Link>
                 </div>
 
                 <Cryptocurrencies shortened />
 
                 <div className='flex justify-between pt-10 text-black font-bold text-lg md:text-xl lg:text-2xl 2xl:text-3xl'>
-                    <p className='xl:pl-72 md:pl-8 pl-4'>Top 6 Exchanges</p>
+                    <p className='xl:pl-72 md:pl-8 pl-4'>Top 5 Exchanges</p>
                     <Link to="/exchanges" className='pr-4 text-white lg:pr-12'>Show More</Link>
                 </div>
 

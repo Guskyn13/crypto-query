@@ -77,8 +77,8 @@ const LineChart = ({ currentPrice, coinName, coinHistory }) => {
 
     return (
         <>
-            <div className='flex flex-col items-center justify-center w-screen pl-4 pr-4 pt-8 pb-20 xl:w-5/6'>
-                <p className='text-white text-lg'>Current {coinName} Price: ${currentPrice}</p>
+            <div className='flex flex-col items-center justify-center w-screen pr-4 pt-8 pb-8 xl:w-5/6'>
+                <p className='text-white text-md lg:text-2xl'>Current {coinName} Price: ${currentPrice}</p>
                 <Line data={data} options={options} />
             </div>
         </>

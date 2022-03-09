@@ -39,7 +39,7 @@ const News = ({ shortened }) => {
                         md:grid-cols-2 
                         '>
                         {cryptoNews?.value?.map((cryptoArticle) => (
-                            <div className='border-black flex flex-col items-center bg-gray-500
+                            <div key={cryptoArticle.name} className='border-black flex flex-col items-center bg-gray-500
                             xl:border-4
                             border-2
                             '>
@@ -49,10 +49,10 @@ const News = ({ shortened }) => {
                                         <img className='h-20' src={cryptoArticle?.image?.thumbnail?.contentUrl || demoImage} alt="" />
                                     </div>
                                     <p className='text-xl pt-4 pl-4 pr-4'>{cryptoArticle.description > 100 ? `${cryptoArticle?.description.substring(0, 100)}...` : cryptoArticle.description}</p>
-                                    <div className='flex items-center justify-evenly text-base pt-8 pb-2'>
-                                        <img className='h-8' src={cryptoArticle?.provider[0]?.image?.thumbnail?.contentUrl || demoImage2} alt="" />
-                                        <p>{cryptoArticle.provider[0]?.name}</p>
-                                        <p>{moment(cryptoArticle.datePublished).startOf('ss').fromNow()}</p>
+                                    <div className='flex items-center justify-evenly text-sm pt-8 pb-2'>
+                                        <img className='h-6 pl-2' src={cryptoArticle?.provider[0]?.image?.thumbnail?.contentUrl || demoImage2} alt="" />
+                                        <p className='pl-4 pr-4'>{cryptoArticle.provider[0]?.name}</p>
+                                        <p className='pr-2'>{moment(cryptoArticle.datePublished).startOf('ss').fromNow()}</p>
                                     </div>
                                 </a>
                             </div>
